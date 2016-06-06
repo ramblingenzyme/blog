@@ -1,3 +1,7 @@
+---
+title: 'About'
+---
+
 # `cat ~/usr/about-me.txt` #
 I'm Satvik (ramblingenzyme), an undergrad CompSci student at UOW, born in the late 90's.
 I enjoy programming and solving problems, and live most of my computing life in a terminal/shell.

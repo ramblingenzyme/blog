@@ -1,4 +1,7 @@
-# My First Twitter bot #
+---
+title: 'My First Twitter bot'
+---
+
 For my first experience with NodeJS, I decided on the fairly popular project of a Twitter bot.
 All I had to do was figure out what this bot would tweet. I looked around for a while, and eventually I found out that my university offers a public API, which includes parking lot data.
 
