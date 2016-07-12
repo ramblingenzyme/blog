@@ -8,13 +8,15 @@ for file in $(ls md/); do
             ;&
         "index.md")
             output="./${file%%.*}.html"
+            css="css/style.css"
             ;;
         *)
             output="./blog/${file%%.*}.html"
+            css="../css/style.css"
     esac
     pandoc "./md/$file"     \
     -o $output              \
-    -c css/style.css        \
+    -c $css                 \
     -B include/navbar.html  \
     --title-prefix "Ramblings of an Enzyme"
 done

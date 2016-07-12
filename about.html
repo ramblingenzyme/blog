@@ -42,10 +42,22 @@
 <pre><code>#!/usr/bin/env bash
 for file in $(ls md/); do
     echo $file
-    pandoc &quot;./md/$file&quot; -o &quot;${file%%.*}.html&quot;
-        -c css/style.css
-        -B include/navbar.html
-        --title-prefix &quot;Ramblings of an Enzyme&quot;
+    case $file in
+        &quot;about.md&quot;)
+            ;&amp;
+        &quot;archive.md&quot;)
+            ;&amp;
+        &quot;index.md&quot;)
+            output=&quot;./${file%%.*}.html&quot;
+            ;;
+        *)
+            output=&quot;./blog/${file%%.*}.html&quot;
+    esac
+    pandoc &quot;./md/$file&quot;     \
+    -o $output              \
+    -c css/style.css        \
+    -B include/navbar.html  \
+    --title-prefix &quot;Ramblings of an Enzyme&quot;
 done</code></pre>
 </body>
 </html>
