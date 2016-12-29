@@ -1,28 +1,42 @@
 #!/usr/bin/env bash
+SOURCE_DIR="src"
+INPUT_ARTICLE_DIR="articles"
+
 BUILD_DIR="build"
-ARTICLE_DIR="blog"
+OUTPUT_ARTICLE_DIR="blog"
+
+CSS_DIR="css"
 CSS="/css/style.css"
 
-for file in $(find md/articles/ -type f -printf "%f\n"); do
-    echo $file
-    output="./$BUILD_DIR/$ARTICLE_DIR/${file%%.*}.html"
-    css="../css/style.css"
+UI="./include/navbar.html"
+PREFIX="Ramblings of an Enzyme"
 
-    pandoc "md/articles/$file"  \
-        -o $output              \
-        -c $CSS                 \
-        -B include/navbar.html  \
-        --title-prefix "Ramblings of an Enzyme"
+rm -rf $BUILD_DIR
+mkdir -p $BUILD_DIR/$OUTPUT_ARTICLE_DIR
+
+cp -r $SOURCE_DIR/$CSS_DIR $BUILD_DIR/
+cp $SOURCE_DIR/CNAME $BUILD_DIR/CNAME
+
+for FILE in $(find $SOURCE_DIR/$INPUT_ARTICLE_DIR -type f -printf "%f\n"); do
+    echo $FILE
+    OUTPUT="./$BUILD_DIR/$OUTPUT_ARTICLE_DIR/${FILE%%.*}.html"
+    echo "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE"
+    echo $OUTPUT
+
+    pandoc "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE" \
+        -o "$OUTPUT" \
+        -c "$CSS"     \
+        -B "$UI"       \
+        --title-prefix "$PREFIX"
 done
 
-for file in $(find md/ -maxdepth 1 -type f -printf "%f\n"); do
-    echo $file
-    output="./$BUILD_DIR/${file%%.*}.html"
-    css="css/style.css"
+for FILE in $(find $SOURCE_DIR -maxdepth 1 -name "*.md" -type f -printf "%f\n"); do
+    echo $FILE
+    OUTPUT="./$BUILD_DIR/${FILE%%.*}.html"
 
-    pandoc "md/$file"           \
-        -o $output              \
-        -c $CSS                 \
-        -B include/navbar.html  \
-        --title-prefix "Ramblings of an Enzyme"
+    pandoc "$SOURCE_DIR/$FILE" \
+        -o "$OUTPUT" \
+        -c "$CSS"     \
+        -B "$UI"       \
+        --title-prefix "$PREFIX"
 done
