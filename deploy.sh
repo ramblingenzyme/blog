@@ -5,6 +5,8 @@ INPUT_ARTICLE_DIR="articles"
 BUILD_DIR="build"
 OUTPUT_ARTICLE_DIR="blog"
 
+IMAGES_DIR="images"
+
 CSS_DIR="css"
 CSS="/css/style.css"
 
@@ -14,6 +16,7 @@ PREFIX="Ramblings of an Enzyme"
 rm -rf $BUILD_DIR
 mkdir -p $BUILD_DIR/$OUTPUT_ARTICLE_DIR
 
+cp -r $SOURCE_DIR/$IMAGES_DIR $BUILD_DIR/
 cp -r $SOURCE_DIR/$CSS_DIR $BUILD_DIR/
 cp $SOURCE_DIR/CNAME $BUILD_DIR/CNAME
 
