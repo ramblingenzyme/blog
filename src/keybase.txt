@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/ramblingenzyme
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://ramblingenzy.me
+  * I am ramblingenzyme (https://keybase.io/ramblingenzyme) on keybase.
+  * I have a public key ASCaURTvY52fKjQrx2LM7N6-5R4CE9HOe-KB3-f53xgJ2Qo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01209a5114ef639d9f2a342bc762ccecdebee51e0213d1ce7be281dfe7f9df1809d90a",
+            "host": "keybase.io",
+            "kid": "01209a5114ef639d9f2a342bc762ccecdebee51e0213d1ce7be281dfe7f9df1809d90a",
+            "uid": "b8f3638e49132e97be0e93fcf2e6f119",
+            "username": "ramblingenzyme"
+        },
+        "service": {
+            "hostname": "ramblingenzy.me",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1484618356,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1484618325,
+        "hash": "4693a169a54b97d0b6104f07781d80a32cb99dd96743e16de2347d6e6c3d47aadee735452e467b33d8370d2f447f36c08633bfc60330949f8cdc5994c04c6b87",
+        "seqno": 802799
+    },
+    "prev": "3f125a32f0cd5f1639ded925b24d8bfbe306cb5608e0f93db744016e263943f0",
+    "seqno": 17,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgmlEU72Odnyo0K8dizOzevuUeAhPRznvigd/n+d8YCdkKp3BheWxvYWTFAv17ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwOWE1MTE0ZWY2MzlkOWYyYTM0MmJjNzYyY2NlY2RlYmVlNTFlMDIxM2QxY2U3YmUyODFkZmU3ZjlkZjE4MDlkOTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwOWE1MTE0ZWY2MzlkOWYyYTM0MmJjNzYyY2NlY2RlYmVlNTFlMDIxM2QxY2U3YmUyODFkZmU3ZjlkZjE4MDlkOTBhIiwidWlkIjoiYjhmMzYzOGU0OTEzMmU5N2JlMGU5M2ZjZjJlNmYxMTkiLCJ1c2VybmFtZSI6InJhbWJsaW5nZW56eW1lIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJyYW1ibGluZ2VuenkubWUiLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE4In0sImN0aW1lIjoxNDg0NjE4MzU2LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0ODQ2MTgzMjUsImhhc2giOiI0NjkzYTE2OWE1NGI5N2QwYjYxMDRmMDc3ODFkODBhMzJjYjk5ZGQ5Njc0M2UxNmRlMjM0N2Q2ZTZjM2Q0N2FhZGVlNzM1NDUyZTQ2N2IzM2Q4MzcwZDJmNDQ3ZjM2YzA4NjMzYmZjNjAzMzA5NDlmOGNkYzU5OTRjMDRjNmI4NyIsInNlcW5vIjo4MDI3OTl9LCJwcmV2IjoiM2YxMjVhMzJmMGNkNWYxNjM5ZGVkOTI1YjI0ZDhiZmJlMzA2Y2I1NjA4ZTBmOTNkYjc0NDAxNmUyNjM5NDNmMCIsInNlcW5vIjoxNywidGFnIjoic2lnbmF0dXJlIn2jc2lnxEBCn/xFc6AeBgTcbPjZbws8UIJOwm2uQ8V4Vj/JOt9GyKcmCVhOdhLdmStyopsd2P4arjMVMPwEgEn5XqeXa0YKqHNpZ190eXBlIKRoYXNogqR0eXBlCKV2YWx1ZcQgjhRPc6pUUtvVupKiLzKFEoU11FLhNf3/HKxBBxreH4ujdGFnzQICp3ZlcnNpb24B
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ramblingenzyme
+
+==================================================================

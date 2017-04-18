@@ -19,6 +19,7 @@ mkdir -p $BUILD_DIR/$OUTPUT_ARTICLE_DIR
 cp -r $SOURCE_DIR/$IMAGES_DIR $BUILD_DIR/
 cp -r $SOURCE_DIR/$CSS_DIR $BUILD_DIR/
 cp $SOURCE_DIR/CNAME $BUILD_DIR/CNAME
+cp $SOURCE_DIR/keybase.txt $BUILD_DIR/keybase.txt
 
 for FILE in $(find $SOURCE_DIR/$INPUT_ARTICLE_DIR -type f -printf "%f\n"); do
     echo $FILE
