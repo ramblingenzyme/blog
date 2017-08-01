@@ -22,10 +22,10 @@ cp $SOURCE_DIR/CNAME $BUILD_DIR/CNAME
 cp $SOURCE_DIR/keybase.txt $BUILD_DIR/keybase.txt
 
 for FILE in $(find $SOURCE_DIR/$INPUT_ARTICLE_DIR -type f -printf "%f\n"); do
-    echo $FILE
+    echo "$FILE"
     OUTPUT="./$BUILD_DIR/$OUTPUT_ARTICLE_DIR/${FILE%%.*}.html"
     echo "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE"
-    echo $OUTPUT
+    echo "$OUTPUT"
 
     pandoc "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE" \
         -o "$OUTPUT" \
@@ -35,7 +35,7 @@ for FILE in $(find $SOURCE_DIR/$INPUT_ARTICLE_DIR -type f -printf "%f\n"); do
 done
 
 for FILE in $(find $SOURCE_DIR -maxdepth 1 -name "*.md" -type f -printf "%f\n"); do
-    echo $FILE
+    echo "$FILE"
     OUTPUT="./$BUILD_DIR/${FILE%%.*}.html"
 
     pandoc "$SOURCE_DIR/$FILE" \
