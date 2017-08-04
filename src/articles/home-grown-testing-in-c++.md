@@ -6,7 +6,7 @@ Knowing the value of testing our code in development, I decided to implement a s
 
 I started with a very naive implementation which took a function, an argument and an expected value.
 
-```
+```{.cpp}
 template<typename TestedFunction, typename Arg, typename Expected>
 bool test(TestedFunction f, Expected e, Arg a) {
     Expected observed = f(a);
@@ -25,7 +25,7 @@ This would be run something like `test(addOne, 2, 1)` and would return true if a
 
 However very quickly I found myself needing to test a function that takes more than one argument and implemented an overload of `test` that takes two arguments. Just add another typename so the second argument can be of a different type to the first (something simple I missed the first time I attempted this) and another argument to the function and awaayyy we go.
 
-```
+```{.cpp}
 template<typename TestedFunction, typename Expected, typename Arg1, typename Arg2>
 bool test(TestedFunction f, Expected e, Arg1 a1, Arg2 a2) {
     Expected observed = f(a1, a2);
@@ -42,7 +42,7 @@ bool test(TestedFunction f, Expected e, Arg1 a1, Arg2 a2) {
 
 Of course, sooner or later, functions with 3 or more arguments (gross but possible) will come along and ruin our nice little testing picnic, so this clearly doesn't scale. So I went simpler, where it was just a function that compared two values of the same type.
 
-```
+```{.cpp}
 template<typename Compare>
 bool test(Compare observed, Compare expected) {
 
@@ -58,7 +58,7 @@ bool test(Compare observed, Compare expected) {
 To run this test implementation it goes a little something like this: `test(addOne(1), 2)`.
 Super simple, and handles any number of arguments! Surely this is as far as we go? Nope, I got greedy and implemented a version which takes a string as the first argument to print a test name.
 
-```
+```{.cpp}
 template<typename TestName, typename Compare>
 bool test(TestName name, Compare observed, Compare expected) {
     std::cout << name << std::endl;
@@ -75,7 +75,7 @@ bool test(TestName name, Compare observed, Compare expected) {
 
 However, this led to the sad revelation that any output from the function would be printed before the test name leading to confusion and much despair. So, a bit more googling and some learning about function pointers and variadic arguments in templates and we have our final testing implementation!
 
-```
+```{.cpp}
 template<typename Compare>
 bool isSame(Compare observed, Compare expected) {
     if (observed != expected) {
