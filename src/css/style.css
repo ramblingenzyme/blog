@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    position:absolute;
+    position: absolute;
     top:0;
     bottom:0;
     right:0;
@@ -76,4 +76,14 @@ pre code {
 .header {
     color: white;
     background-color: #222;
+}
+
+.sticky {
+    position: sticky;
+}
+
+.flex-wrap-reverse {
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
 }

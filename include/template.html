@@ -1,9 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 $for(author-meta)$
   <meta name="author" content="$author-meta$" />
 $endfor$
@@ -25,9 +26,8 @@ $endif$
 $for(css)$
   <link rel="stylesheet" href="$css$" type="text/css" />
 $endfor$
-<link rel="stylesheet" href="/css/style.css" type="text/css" />
-<link rel="stylesheet" href="/css/basscss.min.css" type="text/css" />
-<script src="../js/index.js"></script>
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen,print" />
+<link rel="stylesheet" href="/css/basscss.min.css" type="text/css" media="screen,sprint" />
 $if(math)$
   $math$
 $endif$
@@ -39,25 +39,23 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
-<div id="header" class="header top-0 left-0 right-0 border-box z2 pr2">
-    <div class="flex items-stretch justify-between h3">
-        <div class="flex items-stretch justify-around buttons">
-            <a class="pl2 pr1 pt2 pb2" href="/index">Home</a>
-            <a class="pl1 pr1 pt2 pb2" href="/archive">Blog</a>
-            <a class="pl1 pr1 pt2 pb2" href="/about">About</a>
-            <a class="pl1 pr1 pt2 pb2" href="http://www.github.com/ramblingenzyme">Github</a>
-            <a class="pl1 pr1 pt2 pb2" href="http://www.twitter.com/ramblingenzyme">Twitter</a>
-        </div>
-        <div class="pt2 pb2">
-            <p class="m0">
-                The Ramblings of an Enzyme
-            </p>
-        </div>
-    </div>
+<div id="header" class="header sticky top-0 left-0 right-0 border-box z2 pr2">
+<div class="flex flex-wrap-reverse items-stretch justify-between h3">
+<div class="flex items-stretch justify-around buttons pt2 pb2">
+<a class="pl2 pr1" href="/index">Home</a>
+<a class="pl1 pr1" href="/archive">Blog</a>
+<a class="pl1 pr1" href="/about">About</a>
+<a class="pl1 pr1" href="http://www.github.com/ramblingenzyme">Github</a>
+<a class="pl1 pr1" href="http://www.twitter.com/ramblingenzyme">Twitter</a>
+</div>
+<div class="pt2 pb2">
+<h1 class="h3 m0 pl2">The Ramblings of an Enzyme</h1>
+</div>
+</div>
 </div>
 <div class="pl1 pr1 max-width-4 mx-auto">
 $if(title)$
-<div id="$idprefix$header">
+<div id="article-header">
 <p class="h1">$title$</h1>
 $if(subtitle)$
 <p class="h2">$subtitle$</h1>

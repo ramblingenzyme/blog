@@ -21,6 +21,7 @@ bool test(TestedFunction f, Expected e, Arg a) {
     return true;
 }
 ```
+
 This would be run something like `test(addOne, 2, 1)` and would return true if addOne was miraculously implemented correctly...
 
 However very quickly I found myself needing to test a function that takes more than one argument and implemented an overload of `test` that takes two arguments. Just add another typename so the second argument can be of a different type to the first (something simple I missed the first time I attempted this) and another argument to the function and awaayyy we go.

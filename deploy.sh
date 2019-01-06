@@ -24,25 +24,25 @@ cp $SOURCE_DIR/CNAME $BUILD_DIR/CNAME
 cp $SOURCE_DIR/keybase.txt $BUILD_DIR/keybase.txt
 
 for FILE in $(find $SOURCE_DIR/$INPUT_ARTICLE_DIR -type f -printf "%f\n"); do
-    echo "$FILE"
     OUTPUT="./$BUILD_DIR/$OUTPUT_ARTICLE_DIR/${FILE%%.*}.html"
-    echo "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE"
-    echo "$OUTPUT"
+    echo "$FILE : $SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE : $OUTPUT"
 
     pandoc "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE" \
         -o "$OUTPUT" \
         --template "$TEMPLATE" \
         --title-prefix "$PREFIX" \
-        --highlight-style monochrome
+        --highlight-style monochrome \
+        -V lang:en
 done
 
 for FILE in $(find $SOURCE_DIR -maxdepth 1 -name "*.md" -type f -printf "%f\n"); do
-    echo "$FILE"
     OUTPUT="./$BUILD_DIR/${FILE%%.*}.html"
+    echo "$FILE : $SOURCE_DIR/$FILE : $OUTPUT"
 
     pandoc "$SOURCE_DIR/$FILE" \
         -o "$OUTPUT" \
         --template "$TEMPLATE" \
         --title-prefix "$PREFIX" \
-        --highlight-style monochrome
+        --highlight-style monochrome \
+        -V lang:en
 done
