@@ -1,71 +1,95 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+<html xmlns="http://www.w3.org/1999/xhtml" $if(lang)$ lang="$lang$" xml:lang="$lang$" $endif$$if(dir)$ dir="$dir$"
+  $endif$>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-$for(author-meta)$
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Welcome to my blog!" />
+  $for(author-meta)$
   <meta name="author" content="$author-meta$" />
-$endfor$
-$if(date-meta)$
+  $endfor$
+  $if(date-meta)$
   <meta name="date" content="$date-meta$" />
-$endif$
-$if(keywords)$
+  $endif$
+  $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
-$endif$
+  $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-$if(quotes)$
-  <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
-$endif$
-$if(highlighting-css)$
+  $if(quotes)$
   <style type="text/css">
-$highlighting-css$
+    q {
+      quotes: "“""”""‘""’";
+    }
   </style>
-$endif$
-$for(css)$
+  $endif$
+  $if(highlighting-css)$
+  <style type="text/css">
+    $highlighting-css$
+  </style>
+  $endif$
+  $for(css)$
   <link rel="stylesheet" href="$css$" type="text/css" />
-$endfor$
-<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen,print" />
-<link rel="stylesheet" href="/css/basscss.min.css" type="text/css" media="screen,sprint" />
-$if(math)$
+  $endfor$
+  <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen,print" />
+  <link rel="stylesheet" href="/css/basscss.min.css" type="text/css" media="screen,sprint" />
+  $if(math)$
   $math$
-$endif$
-$for(header-includes)$
+  $endif$
+  $for(header-includes)$
   $header-includes$
-$endfor$
+  $endfor$
 </head>
+
 <body class="m0">
-$for(include-before)$
-$include-before$
-$endfor$
-<div id="header" class="header sticky top-0 left-0 right-0 border-box z2 pr2">
-<div class="flex flex-wrap-reverse items-stretch justify-between h3">
-<div class="flex items-stretch justify-around buttons pt2 pb2">
-<a class="pl2 pr1" href="/index">Home</a>
-<a class="pl1 pr1" href="/archive">Blog</a>
-<a class="pl1 pr1" href="/about">About</a>
-<a class="pl1 pr1" href="http://www.github.com/ramblingenzyme">Github</a>
-<a class="pl1 pr1" href="http://www.twitter.com/ramblingenzyme">Twitter</a>
-</div>
-<div class="pt2 pb2">
-<h1 class="h3 m0 pl2">The Ramblings of an Enzyme</h1>
-</div>
-</div>
-</div>
-<div class="pl1 pr1 max-width-4 mx-auto">
-$if(title)$
-<div id="article-header">
-<p class="h1">$title$</h1>
-$if(subtitle)$
-<p class="h2">$subtitle$</h1>
-$endif$
-</div>
-$endif$
-$body$
-$for(include-after)$
-$include-after$
-$endfor$
-</div>
+  $for(include-before)$
+  $include-before$
+  $endfor$
+  <header id="header" title="Global Header"
+    class="header sticky border-box top-0 z2 pr1 pl1 pt1 pb1 flex items-center justify-between h3">
+    <div class="flex items-center justify-around">
+      <nav class="buttons" title="Navigation links">
+        <ul class="flex">
+          <li class="pl1 pr1">
+            <a href="/index" label="Home">Home</a>
+          </li>
+          <li class="pl1 pr1">
+            <a href="/archive">Blog</a>
+          </li>
+          <li class="pl1 pr1">
+            <a href="/about">About</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="buttons" title="Social links">
+        <ul class="flex">
+          <li class="pl1 pr1">
+            <a href="http://www.github.com/ramblingenzyme" target="_blank" rel="noopener noreferrer">Github</a>
+          </li>
+          <li class="pl1 pr1">
+            <a href="http://www.twitter.com/ramblingenzyme" target="_blank" rel="noopener noreferrer">Twitter</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <h1 class="h3 m0 pl1">The Ramblings of an Enzyme</h1>
+  </header>
+  <main class="pl2 pr2 mb4 max-width-4 mx-auto">
+    $if(title)$
+    <h1>$title$</h1>
+    $if(subtitle)$
+    <h2>$subtitle$</h2>
+    $endif$
+    $endif$
+    <article>
+      $body$
+    </article>
+    $for(include-after)$
+    $include-after$
+    $endfor$
+  </main>
 </body>
+
 </html>

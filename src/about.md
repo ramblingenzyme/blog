@@ -3,15 +3,14 @@ title: 'About'
 ---
 
 # `cat ~/usr/about-me.txt` #
-I'm Satvik (ramblingenzyme), an undergrad CompSci student at UOW, born in the late 90's.
+I'm Satvik (ramblingenzyme), a Wizard Software Developer at [Easy Agile](https://easyagile.com/), born in the late 90's.
 I enjoy programming and solving problems, and live most of my computing life in a terminal/shell.
 Here is a list of words that describe me:
 
 * Australian
 * Linux geek
 * Open Source admirer
-* Tech enthusiast (with no money)
-* PC Gamer
+* Tech enthusiast
 * Procrastinator
 * Blogger (apparently)
 

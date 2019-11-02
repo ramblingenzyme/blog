@@ -3,20 +3,15 @@ html {
 }
 
 body {
-    position: absolute;
-    top:0;
-    bottom:0;
-    right:0;
-    left:0;
     color:#222;
     font-family: sans-serif;
     font-size: 1.2rem;
 }
 
 p {
-    margin-bottom: 15px;
-    margin-left: 5px;
-    line-height: 1.5;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    line-height: 1.5rem;
 }
 
 a:link {
@@ -41,7 +36,7 @@ ul {
 }
 
 h1,h2,h3 {
-    line-height:1.5;
+    line-height:1.5rem;
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
@@ -52,7 +47,7 @@ pre {
     font-size: 1rem;
     background-color: #222;
     border: 1px solid #222;
-    padding: 10px;
+    padding: 1rem;
     overflow-x: auto;
     overflow-y: hidden;
     max-width:inherit;
@@ -68,6 +63,12 @@ pre code {
     text-decoration: none;
 }
 
+.buttons ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
 .buttons a:hover:not(.active) {
     color: #f1f1f1;
     background-color: #444;
@@ -78,7 +79,20 @@ pre code {
     background-color: #222;
 }
 
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column-reverse;
+    }
+
+    .header h1 {
+        margin-bottom: 1rem;
+        text-decoration: underline;
+        font-size: 2rem;
+    }
+}
+
 .sticky {
+    position: -webkit-sticky;
     position: sticky;
 }
 
