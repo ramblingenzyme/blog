@@ -33,14 +33,16 @@ ul {
 
 pre {
     color: #f1f1f1;
-    font-family: monospace;
     font-size: 1rem;
     background-color: #222;
-    border: 1px solid #222;
     padding: 1rem;
     overflow-x: auto;
     overflow-y: hidden;
-    max-width:inherit;
+    max-width: inherit;
+}
+
+code {
+    font-family: 'Space Mono', monospace;
 }
 
 pre code {
@@ -50,6 +52,7 @@ pre code {
 
 .buttons a {
     color: white;
+    transition: background-color 0.5s ease-out;
 }
 
 .buttons ul {
@@ -58,9 +61,10 @@ pre code {
     padding: 0px;
 }
 
-.buttons a:hover:not(.active) {
+.buttons a:hover {
     color: #f1f1f1;
     background-color: #444;
+    transition: background-color 0.2s ease-in;
 }
 
 .header {

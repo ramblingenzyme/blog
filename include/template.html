@@ -21,6 +21,7 @@
   <link href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen,print" />
   <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
   $if(quotes)$
   <style type="text/css">
     q {
@@ -73,14 +74,14 @@
     </nav>
     <h1 class="h3 m0 pl1">The Ramblings of an Enzyme</h1>
   </header>
-  <main class="pl2 pr2 mb4 max-width-4 mx-auto">
+  <main class="pl2 pr2 mb4 max-width-4 mx-auto" title="Main">
     $if(title)$
-    <h1>$title$</h1>
+    <h1 title="Title">$title$</h1>
     $if(subtitle)$
-    <h2>$subtitle$</h2>
+    <h2 title="Subtitle">$subtitle$</h2>
     $endif$
     $endif$
-    <article>
+    <article title="Content">
       $body$
     </article>
     $for(include-after)$
