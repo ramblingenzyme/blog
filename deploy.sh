@@ -5,6 +5,7 @@ INPUT_ARTICLE_DIR="articles"
 BUILD_DIR="build"
 OUTPUT_ARTICLE_DIR="blog"
 
+PUBLIC_DIR="public"
 IMAGES_DIR="images"
 JS_DIR="js"
 
@@ -19,6 +20,7 @@ mkdir -p $BUILD_DIR/$OUTPUT_ARTICLE_DIR
 cp -r $SOURCE_DIR/$JS_DIR $BUILD_DIR/
 cp -r $SOURCE_DIR/$IMAGES_DIR $BUILD_DIR/
 cp -r $SOURCE_DIR/$CSS_DIR $BUILD_DIR/
+cp -r $SOURCE_DIR/$PUBLIC_DIR $BUILD_DIR/
 
 cp $SOURCE_DIR/CNAME $BUILD_DIR/CNAME
 cp $SOURCE_DIR/keybase.txt $BUILD_DIR/keybase.txt
@@ -45,4 +47,8 @@ for FILE in $(find $SOURCE_DIR -maxdepth 1 -name "*.md" -type f -printf "%f\n");
         --title-prefix "$PREFIX" \
         --highlight-style monochrome \
         -V lang:en
+done
+
+for FILE in $(find $SOURCE_DIR -maxdepth 1 -name "*.html" -type f -printf "%f\n"); do
+    cp "$SOURCE_DIR/$FILE" "$BUILD_DIR/$FILE";
 done

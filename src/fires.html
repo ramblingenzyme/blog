@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>we are burning</title>
+        <script defer src="/js/fires.js"></script>
+        <link rel="stylesheet" href="/css/fires.css" type="text/css" media="screen,print" />
+    </head>
+    <body>
+        <header class="header">
+            <div>
+                <h3>
+                    <a href="https://twitter.com/neonfiona/status/1213859163983368192">
+                        scummo is a dog cunt bludger
+                    </a>
+                </h3>
+                <h1>
+                    <a class="urgent" href="https://www.rfs.nsw.gov.au/volunteer/support-your-local-brigade">
+                        donate to the firies
+                    </a>
+                </h1>
+            </div>
+            <div class="audio-container">
+                <audio controls autoplay loop>
+                    <source class="song-audio-source" type="audio/mpeg" src="/public/scummo.mp3">
+                    Your browser doesn't support the audio element.
+                </audio>
+                <a href="https://www.youtube.com/watch?v=WKiBepPGVD0">src</a>
+            </div>
+        </header>
+        <div class="content">
+            <ul id="incident-list">
+            </ul>
+            <div id="total"></div>
+        </div>
+        <template id="incident-template">
+            <li class="incident-wrapper">
+                <h2 class="incident-title">
+                    <a class="incident-link" target="_blank" rel="noopener nofollow">
+                    </a>
+                </h2>
+                <h3 class="incident-date"></h2>
+                <p class="incident-description"></p>
+            </div>
+        </template>
+    </body>
+</html>
