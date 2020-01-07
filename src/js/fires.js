@@ -85,6 +85,8 @@ const main = async () => {
     const htmlNodes = items.map(rssObjToHtmlNode(incidentTemplate))
     htmlNodes.forEach(node => list.appendChild(node));
 
+    const incidentCount = items.length;
+
     const totalArea = items
         .flatMap(grabHA)
         .filter(x => !!x)
@@ -94,7 +96,7 @@ const main = async () => {
 
     console.log(totalArea);
     total.innerHTML = `
-        <p>There are approx ${totalArea.toLocaleString()} HA burning right now.</p>
+        <p>There is an estimated ${totalArea.toLocaleString()} HA burning right now in the ${incidentCount} major fires being reported.</p>
         <p>That is ~${(totalArea / AMAZON_HA).toLocaleString()}x the size of the 2019 Amazon Rainforest Fires burning <b>now.</b></p>
     `;
 
