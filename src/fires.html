@@ -53,9 +53,22 @@
         <article class="content">
             <ul id="incident-list">
                 <li class="info-block">
-                    <div id="total"></div>
+                    <div id="total">
+                        <p><a href="#more-data">data from previous loads at bottom of page</a></p>
+                    </div>
                 </li>
             </ul>
+             <table id="more-data">
+                 <thead>
+                     <tr>
+                         <th>loaded at</th>
+                         <th># of fires</th>
+                         <th>area burning in hectares</th>
+                     </tr>
+                 </thead>
+                 <tbody id="load-table">
+                 </tbody>
+            </table>
         </article>
         <template id="incident-template">
             <li class="incident-wrapper">
@@ -66,6 +79,13 @@
                 <h3 class="incident-date"></h2>
                 <p class="incident-description"></p>
             </div>
+        </template>
+        <template id="data-row">
+            <tr>
+                <td class="data-date"></td>
+                <td class="data-fire-count"></td>
+                <td class="data-fire-area"></td>
+            </tr>
         </template>
     </body>
 </html>

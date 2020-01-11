@@ -1,6 +1,10 @@
-const xmlParser = new  DOMParser()
+const xmlParser = new DOMParser()
 const RSS_FEED = "http://www.rfs.nsw.gov.au/feeds/major-Fire-Updates.xml"
 const AMAZON_HA = 906000;
+const LS_KEY = "fire-data";
+
+const numRegex = /[0-9]+,[0-9]+/
+const grabHA = ({ description }) => description.match(numRegex);
 
 // This can't be an arrow function, it will bind 'this' to window
 XPathResult.prototype.map = function(f) {
@@ -63,10 +67,65 @@ const rssObjToHtmlNode = originalTemplateElement => rssObj => {
     return template;
 }
 
-const numRegex = /[0-9]+,[0-9]+/
+const putLoadData = (loadData) => {
+    if (typeof window === "undefined" || !("localStorage" in window)) {
+        return false;
+    }
 
-const grabHA = ({ description }) => description.match(numRegex);
+    try {
+        const idNum = localStorage.length;
+        localStorage.setItem(`${LS_KEY}.${idNum}`, JSON.stringify(loadData));
 
+        return true;
+    } catch(e) {
+        console.error("Failed to put to localStorage: ", e);
+        return false;
+    }
+}
+
+const getLoadData = () => {
+    let loadData = [];
+    let data;
+
+    if (typeof window === "undefined" || !("localStorage" in window)) {
+        return loadData;
+    }
+
+    try {
+        const idNum = localStorage.length - 1;
+
+        for(let i = idNum; i >= 0; i--) {
+            data = localStorage.getItem(`${LS_KEY}.${i}`);
+
+            if (data) {
+                const parsedData = JSON.parse(data);
+                loadData.push(parsedData);
+            }
+        }
+
+        return loadData;
+    } catch(e) {
+        console.error("Failed to load from localStorage: ", e, data);
+        return loadData;
+    }
+}
+
+const addFireData = (fireData) => {
+    const fireRowTemplate = document.getElementById("data-row").content;
+    const tableElement = document.getElementById("load-table");
+
+    const rows = fireData.map(({ createdAt, incidentCount, totalArea }) => {
+        const template = fireRowTemplate.cloneNode(true);
+        const addChild = addChildToTemplate(template);
+
+        addChild(".data-date", createdAt);
+        addChild(".data-fire-count", incidentCount);
+        addChild(".data-fire-area", totalArea);
+        return template;
+    });
+
+    rows.forEach(row => tableElement.appendChild(row));
+}
 
 const main = async () => {
     const incidentTemplate = document.getElementById("incident-template").content;
@@ -75,11 +134,6 @@ const main = async () => {
 
     const rssDoc = await fetchData();
     const results = rssDoc.evaluate("//item", rssDoc, null, XPathResult.ANY_TYPE, null);
-
-    const addToList = node => {
-        list.appendChild(node);
-        return node;
-    }
 
     const items = results.map(rssItemToObject)
     const htmlNodes = items.map(rssObjToHtmlNode(incidentTemplate))
@@ -94,12 +148,37 @@ const main = async () => {
         .map(x => parseInt(x, 10))
         .reduce((a, b) => a + b, 0);
 
-    console.log(totalArea);
     total.innerHTML = `
         <p>There is an estimated ${totalArea.toLocaleString()} HA burning right now in the ${incidentCount} major fires being reported.</p>
         <p>That is ~${(totalArea / AMAZON_HA).toLocaleString()}x the size of the 2019 Amazon Rainforest Fires burning <b>now.</b></p>
+        ${total.innerHTML}
     `;
 
+    const loadData = getLoadData();
+
+    const hasChanged = (previousLoad) => (
+        previousLoad.incidentCount !== incidentCount
+        || previousLoad.totalArea !== totalArea
+    )
+
+    const hasData = !!loadData.length;
+    const dataChanged = loadData.length && hasChanged(loadData[0]);
+    const currentData = {
+        createdAt: new Date().toString(),
+        incidentCount,
+        totalArea,
+    }
+
+    addFireData((hasData) ? loadData : [currentData]);
+
+    if (dataChanged || !hasData) {
+        putLoadData({
+            createdAt: new Date().toString(),
+            incidentCount,
+            totalArea,
+
+        });
+    }
 }
 
 main();

@@ -1,6 +1,7 @@
 body {
     font-family: "Courier New", Courier, monospace;
     background-color: #eee;
+    margin-bottom: 4rem;
 }
 
 .header {
@@ -62,6 +63,10 @@ a:hover {
     font-size: 2em;
 }
 
+#total > p {
+    width: 100%;
+}
+
 .incident-wrapper {
     border-style: outset;
     border-width: 10px;
@@ -72,6 +77,23 @@ a:hover {
     padding-bottom: 15px;
     padding-right: 10px;
 
+}
+
+table,
+td {
+    border: 1px solid #333;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
 }
 
 @media (max-width: 52em) {
@@ -87,4 +109,9 @@ a:hover {
         grid-column-start: 1;
         grid-column-end: 3;
     }
+
+    table {
+        width: 100%;
+    }
 }
+
