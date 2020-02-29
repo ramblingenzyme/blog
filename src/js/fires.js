@@ -154,7 +154,7 @@ const main = async () => {
         ${total.innerHTML}
     `;
 
-    const loadData = getLoadData();
+    let loadData = getLoadData();
 
     const hasChanged = (previousLoad) => (
         previousLoad.incidentCount !== incidentCount
@@ -169,16 +169,12 @@ const main = async () => {
         totalArea,
     }
 
-    addFireData((hasData) ? loadData : [currentData]);
+    addFireData([currentData, ...loadData]);
 
     if (dataChanged || !hasData) {
-        putLoadData({
-            createdAt: new Date().toString(),
-            incidentCount,
-            totalArea,
-
-        });
+        putLoadData(currentData);
     }
+
 }
 
 main();
