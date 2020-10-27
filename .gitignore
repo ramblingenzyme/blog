@@ -2,3 +2,7 @@ build/
 build/*/*.html
 build/*.html
 src/wip
+.ninja_deps
+.ninja_log
+build.ninja
+node_modules
