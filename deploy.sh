@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -eo pipefail
+
 SOURCE_DIR="src"
 INPUT_ARTICLE_DIR="articles"
 
@@ -14,6 +16,15 @@ CSS_DIR="css"
 PREFIX="Ramblings of an Enzyme"
 TEMPLATE="./include/template.html"
 
+build_file() {
+    pandoc "$1" \
+        -o "$2" \
+        --template "$TEMPLATE" \
+        --title-prefix "$PREFIX" \
+        --highlight-style monochrome \
+        -V lang:en
+}
+
 rm -rf $BUILD_DIR
 mkdir -p $BUILD_DIR/$OUTPUT_ARTICLE_DIR
 
@@ -27,26 +38,14 @@ cp $SOURCE_DIR/keybase.txt $BUILD_DIR/keybase.txt
 
 for FILE in $(find $SOURCE_DIR/$INPUT_ARTICLE_DIR -type f -printf "%f\n"); do
     OUTPUT="./$BUILD_DIR/$OUTPUT_ARTICLE_DIR/${FILE%%.*}.html"
-    echo "$FILE : $SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE : $OUTPUT"
 
-    pandoc "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE" \
-        -o "$OUTPUT" \
-        --template "$TEMPLATE" \
-        --title-prefix "$PREFIX" \
-        --highlight-style monochrome \
-        -V lang:en
+    build_file "$SOURCE_DIR/$INPUT_ARTICLE_DIR/$FILE" "$OUTPUT"
 done
 
 for FILE in $(find $SOURCE_DIR -maxdepth 1 -name "*.md" -type f -printf "%f\n"); do
     OUTPUT="./$BUILD_DIR/${FILE%%.*}.html"
-    echo "$FILE : $SOURCE_DIR/$FILE : $OUTPUT"
 
-    pandoc "$SOURCE_DIR/$FILE" \
-        -o "$OUTPUT" \
-        --template "$TEMPLATE" \
-        --title-prefix "$PREFIX" \
-        --highlight-style monochrome \
-        -V lang:en
+    build_file "$SOURCE_DIR/$FILE" "$OUTPUT"
 done
 
 for FILE in $(find $SOURCE_DIR -maxdepth 1 -name "*.html" -type f -printf "%f\n"); do
