@@ -50,7 +50,7 @@ build_md() {
 
 rule \
     md2html \
-    pandoc "\$in -o \$out --template \"include/template.html\" --title-prefix \"Ramblings of an Enzyme\""
+    pandoc "\$in -o \$out --template \"include/template.html\" --title-prefix \"Ramblings of an Enzyme\"  --highlight-style monochrome -V lang:en"
 
 rule \
     copy_dir \
