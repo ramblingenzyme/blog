@@ -60,7 +60,7 @@ build_md "src/articles" "blog"
 build_md "src"
 
 for DIR in ${COPIED_DIRS[@]}; do
-    for FILE in $(find src/$DIR -maxdepth 1 -type f -printf "%f\n"); do
+    for FILE in $(find src/$DIR -maxdepth 1 -not -name "*.md" -type f -printf "%f\n"); do
         build $BUILD_DIR/$DIR/$FILE copy src/$DIR/$FILE
     done
 done
