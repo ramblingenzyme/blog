@@ -53,10 +53,6 @@ rule \
     pandoc "\$in -o \$out --template \"include/template.html\" --title-prefix \"Ramblings of an Enzyme\"  --highlight-style monochrome -V lang:en"
 
 rule \
-    copy_dir \
-    cp "-r \$in \$out"
-
-rule \
     copy \
     cp "\$in \$out"
 
@@ -64,7 +60,9 @@ build_md "src/articles" "blog"
 build_md "src"
 
 for DIR in ${COPIED_DIRS[@]}; do
-    build $BUILD_DIR/$DIR copy_dir src/$DIR
+    for FILE in $(find src/$DIR -maxdepth 1 -type f -printf "%f\n"); do
+        build $BUILD_DIR/$DIR/$FILE copy src/$DIR/$FILE
+    done
 done
 
 for FILE in ${COPIED_FILES[@]}; do
