@@ -4,7 +4,7 @@ set -eo pipefail
 BUILD_FILE=build.ninja
 BUILD_DIR="build"
 COPIED_DIRS=( js images css public )
-COPIED_FILES=( CNAME keybase.txt )
+COPIED_FILES=( CNAME keybase.txt fires.html )
 
 rm $BUILD_FILE 2>/dev/null || true
 
@@ -66,10 +66,6 @@ for DIR in ${COPIED_DIRS[@]}; do
 done
 
 for FILE in ${COPIED_FILES[@]}; do
-    build $BUILD_DIR/$FILE copy src/$FILE
-done
-
-for FILE in $(find src -maxdepth 1 -name "*.html" -type f -printf "%f\n"); do
     build $BUILD_DIR/$FILE copy src/$FILE
 done
 

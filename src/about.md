@@ -7,7 +7,7 @@ I'm Satvik (ramblingenzyme), a Wizard Software Developer at [Easy Agile](https:/
 I enjoy problem solving, knitting, video games and live most of my computing life in a terminal/shell.
 Here is a list of words that describe me:
 
-* Pronouns are he/they
+* he/they
 * Australian
 * Linux geek
 * Open Source admirer
