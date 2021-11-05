@@ -12,7 +12,7 @@ In the end I had to split the parking data into the 3 types of parking spot at U
 ## First Experience with NodeJS ##
 Working with Node for a project really made me understand why it's such a popular language, and discover that the implementation of a module system made it a pleasure to work with.
 
-With little/no understanding of asychronous programming, first class functions and callbacks left me confused and in the dark, with no idea what I was doing. This of course meant I had to research and understand these concepts if I was going to get anywhere.
+With little/no understanding of asynchronous programming, first class functions and callbacks left me confused and in the dark, with no idea what I was doing. This of course meant I had to research and understand these concepts if I was going to get anywhere.
 
 However, once I understood these basics, after some research and structuring the program out on paper (as I probably should've done before starting...), progress came quickly.
 

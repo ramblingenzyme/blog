@@ -9,5 +9,5 @@ title: 'Archive'
 
 # Talks
 * 001 - testing-react-components @ [Siligong Valley](https://www.siligongvalley.com)
-    * [youtube](https://www.siligongvalley.com)
+    * [youtube](https://youtu.be/5luvJbVe1Qw)
     * [slides](https://github.com/ramblingenzyme/component-testing-talk/raw/master/component-testing.pdf)
